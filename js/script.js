@@ -93,21 +93,6 @@
   els.forEach(el=>io.observe(el));
 })();
 
-// RSVP
-(function(){
-  const form = document.getElementById('guestbook-form') || document.getElementById('rsvp-form');
-  const thanks = document.getElementById('rsvp-thanks');
-  if(!form) return;
-  form.addEventListener('submit',(e)=>{
-    e.preventDefault();
-    if (thanks) {
-      form.classList.add('hidden');
-      thanks.classList.remove('hidden');
-    } else {
-      form.innerHTML = '<p class="body" style="text-align: center;">Thank you for your warm wishes!</p>';
-    }
-  });
-})();
 
 // Background music (start on first interaction)
 (function(){

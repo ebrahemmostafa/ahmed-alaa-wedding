@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Guest Book - Ahmed &amp; Alaa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Armenian:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'ItaliannoLocal';
+      src: url('assets/fonts/Italianno-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --bg: #f7f5f0;
+      --ink: #2a2723;
+      --muted: #8b8478;
+      --line: rgba(42, 39, 35, 0.14);
+      --card: #fffdf9;
+      --accent: #947d69;
+      --yes: #5d7a52;
+      --no: #a8635b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 5rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-family: 'ItaliannoLocal', cursive;
+      font-size: clamp(3rem, 9vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.75rem 0 0;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stat.yes b {
+      color: var(--yes);
+    }
+
+    .stat.no b {
+      color: var(--no);
+    }
+
+    .guess-note {
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin: 0 0 2rem;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.85rem;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 0.6rem 0.8rem;
+    }
+
+    .toolbar input {
+      flex: 1 1 14rem;
+    }
+
+    .toolbar button {
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .toolbar button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .toolbar input:focus-visible,
+    .toolbar select:focus-visible,
+    .toolbar button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    /* Messages */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .card-date {
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .card-message {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Anek Armenian', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      margin-top: 0.75rem;
+      color: var(--muted);
+    }
+
+    .badge.yes {
+      color: var(--yes);
+    }
+
+    .badge.no {
+      color: var(--no);
+    }
+
+    /* States */
+    .state {
+      text-align: center;
+      color: var(--muted);
+      padding: 3rem 1rem;
+      font-size: 1.15rem;
+    }
+
+    .state.error {
+      color: var(--no);
+    }
+
+    .state code {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(42, 39, 35, 0.06);
+      padding: 0.1rem 0.35rem;
+      border-radius: 2px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* .stats and .toolbar set their own display, which would otherwise win */
+    [hidden] {
+      display: none !important;
+    }
+
+    [dir="rtl"] {
+      text-align: right;
+    }
+
+    @media (max-width: 34rem) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-head {
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Guest Book</h1>
+      <p class="subtitle">Ahmed &amp; Alaa &middot; 28 October 2026</p>
+    </header>
+
+    <section class="stats" id="stats" hidden>
+      <div class="stat"><b id="stat-total">0</b><span>Messages</span></div>
+      <div class="stat yes"><b id="stat-yes">0</b><span>Yes</span></div>
+      <div class="stat no"><b id="stat-no">0</b><span>No</span></div>
+      <div class="stat"><b id="stat-unclear">0</b><span>Unclear</span></div>
+    </section>
+    <p class="guess-note" id="guess-note" hidden>
+      Yes / No are guessed from the wording &mdash; read the messages before counting on them.
+    </p>
+
+    <div class="toolbar" id="toolbar" hidden>
+      <input type="search" id="search" placeholder="Search a name or a message..." aria-label="Search messages" />
+      <select id="sort" aria-label="Sort messages">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+      </select>
+      <button type="button" id="refresh">Refresh</button>
+      <button type="button" id="export">Download CSV</button>
+    </div>
+
+    <div id="state" class="state">Loading the messages...</div>
+    <div id="list"></div>
+  </div>
+
+  <script src="js/supabase-config.js"></script>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+    const el = (id) => document.getElementById(id);
+    const state = el('state');
+    const list = el('list');
+    let entries = [];
+
+    const configured =
+      window.SUPABASE_URL &&
+      window.SUPABASE_ANON_KEY &&
+      !window.SUPABASE_URL.includes('YOUR-PROJECT-REF');
+
+    if (!configured) {
+      state.className = 'state error';
+      state.innerHTML =
+        'Not connected yet. Put your project URL and anon key in <code>js/supabase-config.js</code>, ' +
+        'then run <code>supabase-setup.sql</code> in the Supabase SQL editor.';
+      throw new Error('Supabase is not configured');
+    }
+
+    const db = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+
+    // Rough reading of an answer. Deliberately conservative: anything that is not
+    // an obvious yes or no is left as unclear rather than guessed at.
+    const YES = /\b(yes|yep|yeah|sure|of course|definitely|attending|will be there|count me in|inshallah|in sha allah)\b|نعم|أكيد|اكيد|بالتأكيد|سأحضر|هحضر|حاضر|إن شاء الله|ان شاء الله/i;
+    const NO = /\b(no|nope|sorry|can't|cannot|can not|won't|will not|unable|unfortunately|regret)\b|معتذر|اعتذر|أعتذر|لن أستطيع|لن استطيع|مش هقدر|مقدرش|لا أستطيع/i;
+
+    function verdict(message) {
+      const no = NO.test(message);
+      const yes = YES.test(message);
+      if (yes && !no) return 'yes';
+      if (no && !yes) return 'no';
+      return 'unclear';
+    }
+
+    function isArabic(text) {
+      return /[؀-ۿ]/.test(text);
+    }
+
+    const dateFormat = new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+
+    function card(entry) {
+      const wrapper = document.createElement('article');
+      wrapper.className = 'card';
+
+      const head = document.createElement('div');
+      head.className = 'card-head';
+
+      const name = document.createElement('h2');
+      name.className = 'card-name';
+      name.textContent = entry.name;
+      if (isArabic(entry.name)) name.dir = 'rtl';
+
+      const date = document.createElement('time');
+      date.className = 'card-date';
+      date.dateTime = entry.created_at;
+      date.textContent = dateFormat.format(new Date(entry.created_at));
+
+      head.append(name, date);
+
+      const message = document.createElement('p');
+      message.className = 'card-message';
+      message.textContent = entry.message;
+      if (isArabic(entry.message)) message.dir = 'rtl';
+
+      const answer = verdict(entry.message);
+      const badge = document.createElement('span');
+      badge.className = 'badge ' + answer;
+      badge.textContent = answer === 'yes' ? 'Likely yes' : answer === 'no' ? 'Likely no' : 'Unclear';
+
+      wrapper.append(head, message, badge);
+      return wrapper;
+    }
+
+    function render() {
+      const query = el('search').value.trim().toLowerCase();
+      const rows = entries
+        .filter((e) =>
+          !query ||
+          e.name.toLowerCase().includes(query) ||
+          e.message.toLowerCase().includes(query))
+        .sort((a, b) => el('sort').value === 'old'
+          ? new Date(a.created_at) - new Date(b.created_at)
+          : new Date(b.created_at) - new Date(a.created_at));
+
+      list.replaceChildren(...rows.map(card));
+
+      if (!entries.length) {
+        state.className = 'state';
+        state.textContent = 'No messages yet. They will show up here as guests sign the guest book.';
+      } else if (!rows.length) {
+        state.className = 'state';
+        state.textContent = 'Nothing matches that search.';
+      } else {
+        state.className = 'state hidden';
+      }
+
+      const counts = entries.reduce((acc, e) => {
+        acc[verdict(e.message)]++;
+        return acc;
+      }, { yes: 0, no: 0, unclear: 0 });
+
+      el('stat-total').textContent = entries.length;
+      el('stat-yes').textContent = counts.yes;
+      el('stat-no').textContent = counts.no;
+      el('stat-unclear').textContent = counts.unclear;
+
+      for (const id of ['stats', 'guess-note', 'toolbar']) el(id).hidden = !entries.length;
+    }
+
+    async function load() {
+      const { data, error } = await db
+        .from('guestbook')
+        .select('id, name, message, created_at')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error(error);
+        state.className = 'state error';
+        state.textContent = 'Could not load the messages: ' + error.message;
+        return;
+      }
+
+      entries = data || [];
+      render();
+    }
+
+    function csv() {
+      const cell = (value) => '"' + String(value).replace(/"/g, '""') + '"';
+      const rows = [['Name', 'Message', 'Answer (guess)', 'Sent at']].concat(
+        entries.map((e) => [e.name, e.message, verdict(e.message), new Date(e.created_at).toISOString()])
+      );
+      const blob = new Blob(['﻿' + rows.map((r) => r.map(cell).join(',')).join('\r\n')],
+        { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'guest-book.csv';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    el('search').addEventListener('input', render);
+    el('sort').addEventListener('change', render);
+    el('refresh').addEventListener('click', load);
+    el('export').addEventListener('click', csv);
+
+    await load();
+
+    // Live updates, when realtime is enabled for the table. Harmless if it is not.
+    db.channel('guestbook-feed')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
+        if (!entries.some((e) => e.id === payload.new.id)) {
+          entries.unshift(payload.new);
+          render();
+        }
+      })
+      .subscribe();
+  </script>
+</body>
+
+</html>
