@@ -440,9 +440,13 @@ section {
 }
 
 .scroll-arrow {
-  font-size: 1.2rem;
-  font-family: "Font Awesome 6 Free" !important;
-  font-weight: 900;
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @keyframes bounceSoft {
@@ -1175,47 +1179,6 @@ section {
   }
 }
 
-/* Featured Photo Section */
-.featured-photo-section {
-  max-width: 48rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.featured-photo-frame {
-  position: relative;
-  padding: 1.25rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  border-radius: 12px;
-  margin: 0 auto;
-  max-width: fit-content;
-  display: inline-block;
-}
-
-.featured-photo-frame::before {
-  content: "";
-  position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
-  border: 1px dashed var(--accent);
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 8px;
-  opacity: 0.6;
-}
-
-.featured-photo-frame img {
-  border-radius: 6px;
-  width: 100%;
-  height: auto;
-  max-height: 80vh;
-  object-fit: cover;
-  display: block;
-}
 /* Save the Date card — month, year and day grid drawn over the artwork */
 .savethedate {
   position: relative;
