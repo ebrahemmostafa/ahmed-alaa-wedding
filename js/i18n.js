@@ -46,10 +46,10 @@
       'lang.switch': 'التبديل إلى العربية'
     },
     ar: {
-      'title': 'أحمد - علاء',
+      'title': 'أحمد & آلاء',
       'preloader': 'اضغط على الباب للدخول',
       'hero.together': 'بمباركة عائلتيهما',
-      'hero.names': 'أحمد <br> و <br> علاء',
+      'hero.names': 'أحمد <br> & <br> آلاء',
       'hero.date': '28 أكتوبر 2026',
       'scroll': 'مرّر للأسفل',
       'quran.notice': 'برجاء إيقاف الموسيقى قبل<br> قراءة الآية الكريمة',
@@ -81,7 +81,7 @@
       'guest.error': 'عذرًا، لم نتمكن من إرسال رسالتك. برجاء المحاولة مرة أخرى.',
       'guest.offline': 'سجل الضيوف غير متصل بعد. برجاء المحاولة لاحقًا.',
       'closing': 'حضوركم أجمل ما في قصتنا',
-      'footer.names': 'أحمد و علاء',
+      'footer.names': 'أحمد & آلاء',
       'footer.date': '28 أكتوبر 2026',
       'footer.credit': 'صُنع بكل حب بواسطة <a href="https://ajwa2-collection.vercel.app/" target="_blank" rel="noopener noreferrer">Ajwaa</a>',
       'music.play': 'تشغيل الموسيقى',
