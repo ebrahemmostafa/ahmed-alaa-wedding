@@ -25,6 +25,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Ahmed &amp; Alaa - 28 October 2026" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ahmed &amp; Alaa - 28 October 2026" />
   <meta name="twitter:description"
@@ -35,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Anek+Armenian:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=Italiano&family=Lateef:wght@400;700&family=Pinyon+Script&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anek+Armenian:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=Italiano&family=Lateef:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Pinyon+Script&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -46,7 +47,7 @@
     <video id="preloader-video" src="assets/videos/preloader.mp4#t=0.001" muted playsinline preload="auto"></video>
     <div class="preloader-overlay"></div>
     <div id="preloader-text" class="preloader-text">
-      <p dir="ltr" lang="en" class="en"
+      <p dir="ltr" lang="en" class="en" data-i18n="preloader"
         style="font-size: 1.5rem; color: #000000; font-family: 'ItaliannoLocal', cursive; font-size: 2.4rem;">Click the
         door to open</p>
     </div>
@@ -61,11 +62,11 @@
       <div class="hero-video-overlay"></div>
 
       <div class="hero-video-content" dir="ltr" lang="en">
-        <p
+        <p data-i18n="hero.together"
           style="text-transform: uppercase; font-family: 'Anek Armenian', sans-serif; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 1rem; color: #fff;">
           TOGETHER WITH THEIR FAMILIES</p>
 
-        <h1 class="hero-couple-names"
+        <h1 class="hero-couple-names" data-i18n="hero.names"
           style="font-family: 'ItaliannoLocal', cursive; font-size: 4.5rem; margin: 1rem 0; color: #fff; font-weight: 400;">
           Ahmed </br> & </br> Alaa</h1>
 
@@ -75,13 +76,13 @@
           <span class="line"></span>
         </div>
 
-        <p class="hero-date-text"
+        <p class="hero-date-text" data-i18n="hero.date"
           style="font-family: 'Anek Armenian', sans-serif; font-size: 1.2rem; letter-spacing: 2px; margin-top: 1rem; color: #fff;">
           28 October 2026</p>
       </div>
 
       <div class="scroll-down">
-        <span class="scroll-text">Scroll Down</span>
+        <span class="scroll-text" data-i18n="scroll">Scroll Down</span>
         <svg class="scroll-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M5 9l7 7 7-7" /></svg>
       </div>
@@ -91,10 +92,10 @@
 
     <!-- QURAN VERSE -->
     <section class="fade-up narrow center" dir="ltr" lang="en" style="margin-top: 6rem;">
-      <p class="quran-music-notice" id="quran-music-notice">
+      <p class="quran-music-notice" id="quran-music-notice" data-i18n="quran.notice">
         Kindly Pause The Music Before</br> Reading The Quran Verse
       </p>
-      <p class="body" dir="rtl" lang="ar"
+      <p class="body quran-verse" dir="rtl" lang="ar"
         style="font-family: 'Aref Ruqaa', serif; font-size: 1.8rem; line-height: 1.8; color: #333; margin-top: 1.5rem;">
         وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
         مَّوَدَّةً وَرَحْمَةً
@@ -106,10 +107,10 @@
 
     <!-- WELCOME -->
     <section class="fade-up narrow center" dir="ltr" lang="en" style="margin-top: 6rem;">
-      <h2 class="italic"
+      <h2 class="italic" data-i18n="welcome.title"
         style="font-family: 'ItaliannoLocal', cursive; font-size: 2.8rem; color: #000; font-weight: 400; margin-bottom: 1rem;">
         Dear Family and Friends</h2>
-      <p class="body">
+      <p class="body" data-i18n="welcome.body">
         On this beautiful day, we want to share with you the bright moments and sincere smiles of our love story.
       </p>
     </section>
@@ -119,17 +120,17 @@
 
     <!-- COUNTDOWN -->
     <section class="fade-up countdown">
-      <p dir="ltr" lang="en" class="label"
+      <p dir="ltr" lang="en" class="label" data-i18n="countdown.title"
         style="font-family: 'ItaliannoLocal', cursive; font-size: 2.8rem; color: #000; font-weight: 400; margin-bottom: 0.5rem;">
         Count Down</p>
-      <p dir="ltr" lang="en"
+      <p dir="ltr" lang="en" data-i18n="countdown.sub"
         style="font-family: 'Anek Armenian', sans-serif; font-size: 1.2rem; color: #000; margin-bottom: 2rem; letter-spacing: 3px;">
         Until I Say "Yes"</p>
       <div class="countdown-grid">
-        <div><span id="cd-days">00</span><em>Days</em></div>
-        <div><span id="cd-hours">00</span><em>Hours</em></div>
-        <div><span id="cd-min">00</span><em>Minutes</em></div>
-        <div><span id="cd-sec">00</span><em>Seconds</em></div>
+        <div><span id="cd-days">00</span><em data-i18n="cd.days">Days</em></div>
+        <div><span id="cd-hours">00</span><em data-i18n="cd.hours">Hours</em></div>
+        <div><span id="cd-min">00</span><em data-i18n="cd.minutes">Minutes</em></div>
+        <div><span id="cd-sec">00</span><em data-i18n="cd.seconds">Seconds</em></div>
       </div>
     </section>
 
@@ -188,9 +189,9 @@
     <!-- PROGRAM -->
     <section class="fade-up center time-section" dir="ltr" lang="en" style="position: relative;">
       <div style="position: relative; z-index: 1;">
-        <p class="label"
+        <p class="label" data-i18n="program.title"
           style="font-family: 'ItaliannoLocal', cursive; font-size: 2.8rem; color: #000; font-weight: 400; margin-bottom: 0.5rem;"">The Celebration</p>
-        <h2 class=" italic"
+        <h2 class=" italic" data-i18n="program.sub"
           style="font-family: 'Anek Armenian', sans-serif; font-size: 1.2rem; color: #000; margin-bottom: 2rem;">
           Today's Program</h2>
 
@@ -199,8 +200,9 @@
           <div class="time-block">
             <div class="time-value"
               style="font-family: 'Anek Armenian', sans-serif; color: #000; align-items: flex-end; gap: 0.2rem; font-size: 2.5rem; font-weight: 400;">
-              7 <span class="am-pm" style="font-size: 0.7rem; margin-bottom: 0.35rem; font-weight: 400;">PM</span></div>
-            <div class="time-label label">Starts</div>
+              7 <span class="am-pm" data-i18n="time.pm"
+                style="font-size: 0.7rem; margin-bottom: 0.35rem; font-weight: 400;">PM</span></div>
+            <div class="time-label label" data-i18n="time.starts">Starts</div>
           </div>
 
           <!-- Separator -->
@@ -214,9 +216,10 @@
           <div class="time-block">
             <div class="time-value"
               style="font-family: 'Anek Armenian', sans-serif; color: #000; align-items: flex-end; gap: 0.2rem; font-size: 2.5rem; font-weight: 400;">
-              12 <span class="am-pm" style="font-size: 0.7rem; margin-bottom: 0.35rem; font-weight: 400;">AM</span>
+              12 <span class="am-pm" data-i18n="time.am"
+                style="font-size: 0.7rem; margin-bottom: 0.35rem; font-weight: 400;">AM</span>
             </div>
-            <div class="time-label label">Ends</div>
+            <div class="time-label label" data-i18n="time.ends">Ends</div>
           </div>
         </div>
       </div>
@@ -228,13 +231,13 @@
 
     <!-- VENUE -->
     <section class="fade-up center venue" dir="ltr" lang="en">
-      <p class="label"
+      <p class="label" data-i18n="venue.title"
         style="font-family: 'ItaliannoLocal', cursive; font-size: 3rem; color: #000; font-weight: 400; line-height: 1;"">Venue</p>
         <img src="assets/images/Venue.webp" alt="Illustration of the venue" class="venue-img" />
-      <h2 class=" italic"
+      <h2 class=" italic" data-i18n="venue.name"
         style="font-family: 'Anek Armenian', sans-serif; font-size: 1.3rem; color: #00000081; margin-bottom: 2rem;">
         Gladiolus Garden Hall</br>Chemical Warfare House </h2>
-      <a href="https://share.google/ly6Zvm4gOfAMMiFw0" target="_blank" rel="noreferrer"
+      <a href="https://share.google/ly6Zvm4gOfAMMiFw0" target="_blank" rel="noreferrer" data-i18n="venue.maps"
         class="btn-outline dark">Google Maps</a>
     </section>
 
@@ -245,27 +248,28 @@
 
     <!-- GUESTBOOK -->
     <section class="fade-up narrow center" dir="ltr" lang="en">
-      <p class="label"
+      <p class="label" data-i18n="guest.title"
         style="font-family: 'ItaliannoLocal', cursive; font-size: 3rem; color: #000; font-weight: 400; line-height: 1;">Guest Book</p>
-      <h2 class="italic"
+      <h2 class="italic" data-i18n="guest.sub"
         style="font-family: 'Anek Armenian', sans-serif; font-size: 1.2rem; color: #000; margin-bottom: 2rem;">
         Leave Us a Message
       </h2>
 
       <div class="rsvp" style="text-align: center; margin-top: 1rem;">
-        
+
 <form id="guestbook-form" class="rsvp-form" style="text-align: center; direction: ltr;">
           <label style="text-align: center;">
-            <span>Your Name</span>
+            <span data-i18n="guest.name">Your Name</span>
             <input type="text" name="name" required placeholder="" style="text-align: center;" />
           </label>
           <label style="text-align: center;">
-            <span>Will You Attend ?</span>
-            <textarea name="message" rows="5" required
+            <span data-i18n="guest.attend">Will You Attend ?</span>
+            <textarea name="message" rows="5" required data-i18n-placeholder="guest.placeholder"
               placeholder="Will you be joining us? Leave a &quot;Yes&quot; or &quot;No&quot; with your sweet note..."
               style="text-align: center; min-height: 120px; padding: 0.75rem 0.5rem; font-size: 1rem;"></textarea>
           </label>
-          <button type="submit" class="btn-solid" style="margin-top: 1rem; align-self: center;">Send With Love</button>
+          <button type="submit" class="btn-solid" data-i18n="guest.send"
+            style="margin-top: 1rem; align-self: center;">Send With Love</button>
         </form>
       </div>
     </section>
@@ -277,7 +281,7 @@
 
     <!-- CLOSING MESSAGE -->
     <section class="fade-up narrow center" dir="ltr" lang="en" style="padding-bottom: 3rem;">
-      <h2 class="italic"
+      <h2 class="italic" data-i18n="closing"
         style="font-family: 'ItaliannoLocal', cursive; font-size: 3rem; color: #000; font-weight: 400; margin-top: 1rem;">
         Your presence is the most beautiful part of our story</h2>
     </section>
@@ -293,12 +297,12 @@
         style="position: absolute; top: 0; left: 0; height: 100%; object-fit: contain; z-index: 0; transform: scaleX(-1);" />
 
       <div style="position: relative; z-index: 1;">
-        <p dir="ltr" lang="en" class="script big"
+        <p dir="ltr" lang="en" class="script big" data-i18n="footer.names"
           style="font-family: 'Pinyon Script', cursive; font-size: 2rem; color: #000; margin-bottom: 1rem;">Ahmed &
           Alaa</p>
-        <p dir="ltr" lang="en" class="label" style="font-size: 1rem;">28 October 2026</p>
+        <p dir="ltr" lang="en" class="label" data-i18n="footer.date" style="font-size: 1rem;">28 October 2026</p>
 
-        <p dir="ltr" lang="en" class="credit">
+        <p dir="ltr" lang="en" class="credit" data-i18n="footer.credit">
           made with love by
           <a href="https://ajwa2-collection.vercel.app/" target="_blank" rel="noopener noreferrer">Ajwaa</a>
         </p>
@@ -313,6 +317,10 @@
   <button id="music-toggle" class="music-toggle" type="button" aria-label="Play Music"
     title="Play/Pause Music">♪</button>
 
+  <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch to Arabic"
+    title="Switch to Arabic">عربي</button>
+
+  <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
   <script src="js/supabase-config.js"></script>
   <script type="module" src="js/guestbook.js"></script>

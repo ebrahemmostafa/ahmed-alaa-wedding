@@ -10,35 +10,43 @@ if (form) {
 
   const db = configured ? createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY) : null;
   const button = form.querySelector('button[type="submit"]');
-  const buttonText = button ? button.textContent : '';
+
+  // Falls back to English if the language file has not loaded.
+  const say = (key, english) => (window.i18n ? window.i18n.t(key) : english);
 
   const note = document.createElement('p');
   note.className = 'guestbook-note';
   note.setAttribute('role', 'status');
   form.appendChild(note);
 
-  function fail(text) {
-    note.textContent = text;
+  function fail(key, english) {
+    note.setAttribute('data-i18n', key);
+    note.textContent = say(key, english);
     note.classList.add('is-error');
+  }
+
+  function clearNote() {
+    note.removeAttribute('data-i18n');
+    note.textContent = '';
+    note.classList.remove('is-error');
   }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    note.textContent = '';
-    note.classList.remove('is-error');
+    clearNote();
 
     const name = form.elements.name.value.trim();
     const message = form.elements.message.value.trim();
     if (!name || !message) return;
 
     if (!db) {
-      fail('The guest book is not connected yet. Please try again later.');
+      fail('guest.offline', 'The guest book is not connected yet. Please try again later.');
       return;
     }
 
     if (button) {
       button.disabled = true;
-      button.textContent = 'Sending...';
+      button.textContent = say('guest.sending', 'Sending...');
     }
 
     const { error } = await db
@@ -47,16 +55,19 @@ if (form) {
 
     if (button) {
       button.disabled = false;
-      button.textContent = buttonText;
+      button.textContent = say('guest.send', 'Send With Love');
     }
 
     if (error) {
       console.error('Guest book insert failed:', error);
-      fail('Sorry, your message could not be sent. Please try again.');
+      fail('guest.error', 'Sorry, your message could not be sent. Please try again.');
       return;
     }
 
+    // data-i18n keeps the thank-you translated if the language is switched after.
     form.innerHTML =
-      '<p class="body" style="text-align: center;">Thank you for your warm wishes!</p>';
+      '<p class="body" data-i18n="guest.thanks" style="text-align: center;">' +
+      say('guest.thanks', 'Thank you for your warm wishes!') +
+      '</p>';
   });
 }

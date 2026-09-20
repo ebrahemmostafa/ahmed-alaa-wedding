@@ -1269,3 +1269,86 @@ section {
   color: var(--accent);
   border-color: var(--accent);
 }
+
+/* Language switch */
+.lang-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  min-width: 2.9rem;
+  height: 2.9rem;
+  padding: 0 0.7rem;
+  border: 1px solid rgba(183, 110, 121, .35);
+  border-radius: 999px;
+  background: #f7f5f0;
+  color: #000;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 120;
+  transition: background .25s ease, color .25s ease;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  background: #2a2723;
+  color: #f7f5f0;
+}
+
+/* Arabic mode
+   The invitation sets fonts inline, so these overrides need !important to win. */
+html[data-lang="ar"] body {
+  font-family: 'Noto Naskh Arabic', 'Lateef', serif;
+}
+
+html[data-lang="ar"] :where(p, h1, h2, h3, span, em, div, label, input, textarea, button, a) {
+  font-family: 'Noto Naskh Arabic', 'Lateef', serif !important;
+}
+
+html[data-lang="ar"] .hero-couple-names,
+html[data-lang="ar"] .label,
+html[data-lang="ar"] .italic,
+html[data-lang="ar"] .script,
+html[data-lang="ar"] .quran-verse,
+html[data-lang="ar"] .preloader-text .en {
+  font-family: 'Aref Ruqaa', serif !important;
+}
+
+/* The save the date artwork is English, so its overlay stays English */
+html[data-lang="ar"] .savethedate-overlay .std-month {
+  font-family: 'ItaliannoLocal', cursive !important;
+}
+
+html[data-lang="ar"] .savethedate-overlay .std-year,
+html[data-lang="ar"] .savethedate-overlay .std-day {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+
+html[data-lang="ar"] .hero-couple-names {
+  font-size: 3.4rem !important;
+  line-height: 1.5;
+}
+
+html[data-lang="ar"] .rsvp-form {
+  direction: rtl !important;
+}
+
+html[data-lang="ar"] .countdown-grid em,
+html[data-lang="ar"] .scroll-text,
+html[data-lang="ar"] .quran-music-notice {
+  letter-spacing: normal !important;
+  font-style: normal !important;
+}
+
+html[data-lang="ar"] .hero-date-text,
+html[data-lang="ar"] [data-i18n="hero.together"],
+html[data-lang="ar"] [data-i18n="countdown.sub"] {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* Arabic reads right to left, so these rows flip with it */
+html[data-lang="ar"] .countdown-grid {
+  direction: rtl !important;
+}
